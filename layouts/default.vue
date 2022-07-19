@@ -69,7 +69,7 @@ export default {
       return this.darkMode ? 'mdi-weather-night' : 'mdi-weather-sunny'
     },
     bgColor() {
-      return this.$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-4'
+      return this.darkMode ? 'grey darken-3' : 'grey lighten-4'
     }
   },
 }
