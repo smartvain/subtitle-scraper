@@ -12,3 +12,10 @@ Object.keys(rules).forEach((rule) => {
     message: messages[rule]
   })
 })
+
+extend('is_youtube_url', {
+  message: 'YouTube動画のURLを入力してください。',
+  validate(value) {
+    return value.match(/(www.youtube.com)/g)
+  }
+})
