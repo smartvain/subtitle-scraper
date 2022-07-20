@@ -51,7 +51,7 @@ export default {
       this.loading.getLangList = false
     },
     getSubtitle() {
-      console.log('undev')
+      console.log(this.$store.state.selectedLang)
     }
   }
 }
