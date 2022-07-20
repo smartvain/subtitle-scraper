@@ -52,7 +52,7 @@ export default {
       this.loading.getLangList = false
     },
     getSubtitle() {
-      console.log(this.$store.state.selectedLang)
+      this.$store.commit('setSubtitle', "It's working normally")
     }
   }
 }
