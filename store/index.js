@@ -1,45 +1,45 @@
 export const state = () => ({
   // url: '',
-  // langList: [],
-  // selectedLang: '',
-  // subtitle: null
+  langList: [],
+  selectedLang: '',
+  subtitle: null,
   url: 'https://www.youtube.com/watch?v=ouf7rXDlkDk',
-  langList: [
-    {
-      "text": "インドネシア語",
-      "code": "id"
-    },
-    {
-      "text": "スペイン語 (ラテンアメリカ)",
-      "code": "es-419"
-    },
-    {
-      "text": "ポルトガル語 (ブラジル)",
-      "code": "pt-BR"
-    },
-    {
-      "text": "英語",
-      "code": "en"
-    },
-    {
-      "text": "韓国語",
-      "code": "ko"
-    },
-    {
-      "text": "中国語 (簡体字)",
-      "code": "zh-Hans"
-    },
-    {
-      "text": "中国語 (繁体字)",
-      "code": "zh-Hant"
-    },
-    {
-      "text": "日本語",
-      "code": "ja"
-    }
-  ],
-  selectedLang: 'en',
-  subtitle: null
+  // langList: [
+  //   {
+  //     "text": "インドネシア語",
+  //     "code": "id"
+  //   },
+  //   {
+  //     "text": "スペイン語 (ラテンアメリカ)",
+  //     "code": "es-419"
+  //   },
+  //   {
+  //     "text": "ポルトガル語 (ブラジル)",
+  //     "code": "pt-BR"
+  //   },
+  //   {
+  //     "text": "英語",
+  //     "code": "en"
+  //   },
+  //   {
+  //     "text": "韓国語",
+  //     "code": "ko"
+  //   },
+  //   {
+  //     "text": "中国語 (簡体字)",
+  //     "code": "zh-Hans"
+  //   },
+  //   {
+  //     "text": "中国語 (繁体字)",
+  //     "code": "zh-Hant"
+  //   },
+  //   {
+  //     "text": "日本語",
+  //     "code": "ja"
+  //   }
+  // ],
+  // selectedLang: 'en',
+  // subtitle: null
 })
 
 export const getters = {
