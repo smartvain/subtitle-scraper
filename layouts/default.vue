@@ -2,18 +2,25 @@
   <v-app dark>
     <!-- header -->
     <v-app-bar app flat height="70">
-      <v-row justify="center" class="mt-1">
-        <v-col cols="5">
+      <v-row justify="center">
+        <v-col cols="5" :class="alignCenter">
           <UrlInput
             @get-lang-list="getLangList"
-            @get-subtitle="getSubtitle"
           />
         </v-col>
-        <v-col cols="2">
+        <v-col cols="1" :class="alignCenter">
           <LangSelect
             :loading="loading.getLangList"
             :lang-list="langList"
           />
+        </v-col>
+        <v-col cols="1">
+          <v-btn
+            icon
+            @click="getSubtitle"
+          >
+            <v-icon>mdi-magnify</v-icon>
+          </v-btn>
         </v-col>
       </v-row>
 
@@ -57,6 +64,7 @@ export default {
   data() {
     return {
       darkMode: false,
+      alignCenter: 'd-flex align-center'
     }
   },
   watch: {

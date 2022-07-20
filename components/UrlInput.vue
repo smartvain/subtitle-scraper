@@ -4,18 +4,18 @@
     mode="passive"
     name="URL"
     rules="is_youtube_url"
+    style="width: 100%"
   >
     <v-text-field
       v-model="url"
       dense
       clearable
+      hide-details
       solo
-      append-icon="mdi-magnify"
       :background-color="bgColor"
       :error-messages="errors"
       :flat="!isFocus"
       :placeholder="placeholder"
-      @click:append="$emit('get-subtitle')"
       @blur="isFocus = false; $emit('get-lang-list', url);"
       @focus="isFocus = true"
     />

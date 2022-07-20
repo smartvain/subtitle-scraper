@@ -2,6 +2,7 @@
   <v-select
     v-model="selectLang"
     dense
+    hide-details
     item-text="text"
     item-value="value"
     :items="langList"
