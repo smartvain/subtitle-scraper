@@ -1,10 +1,10 @@
 <template>
   <v-select
-    v-model="selectLang"
+    v-model="scopedSelectedLang"
     dense
     hide-details
     item-text="text"
-    item-value="value"
+    item-value="code"
     :items="langList"
     :loading="loading"
     :no-data-text="noDataText"
@@ -23,12 +23,10 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   props: {
-    langList: {
-      type: Array,
-      default: () => []
-    },
     loading: {
       type: Boolean,
       default: () => false
@@ -36,9 +34,19 @@ export default {
   },
   data() {
     return {
-      selectLang: '',
       noDataText: 'URLが入力されていません。',
       placeholder: '言語を選択'
+    }
+  },
+  computed: {
+    ...mapGetters(['langList', 'selectedLang']),
+    scopedSelectedLang: {
+      get() {
+        return this.selectedLang
+      },
+      set(string) {
+        this.$store.commit('setSelectedLang', string)
+      }
     }
   }
 }
