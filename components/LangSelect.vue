@@ -1,25 +1,31 @@
 <template>
-  <v-select
-    v-model="scopedSelectedLang"
-    dense
-    hide-details
-    item-text="text"
-    item-value="code"
-    :items="langList"
-    :loading="loading"
-    :no-data-text="noDataText"
-    :placeholder="placeholder"
+  <ValidationProvider
+    name="Selected-lang"
+    rules="required"
+    style="width: 100%"
   >
-    <template #no-data>
-      <div v-if="loading" class="text-center">
-        <v-progress-circular color="primary" indeterminate/>
-      </div>
+    <v-select
+      v-model="scopedSelectedLang"
+      dense
+      hide-details
+      item-text="text"
+      item-value="code"
+      :items="langList"
+      :loading="loading"
+      :no-data-text="noDataText"
+      :placeholder="placeholder"
+    >
+      <template #no-data>
+        <div v-if="loading" class="text-center">
+          <v-progress-circular color="primary" indeterminate/>
+        </div>
 
-      <div v-else class="text-center">
-        <span class="grey--text ma-2">{{ noDataText }}</span>
-      </div>
-    </template>
-  </v-select>
+        <div v-else class="text-center">
+          <span class="grey--text ma-2">{{ noDataText }}</span>
+        </div>
+      </template>
+    </v-select>
+  </ValidationProvider>
 </template>
 
 <script>

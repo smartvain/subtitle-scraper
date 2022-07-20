@@ -13,33 +13,21 @@
               md="6"
               class="d-flex align-center pl-0"
             >
-              <ValidationProvider
-                name="URL"
-                rules="is_youtube_url"
-                style="width: 100%"
-              >
-                <UrlInput @get-lang-list="getLangList" />
-              </ValidationProvider>
+              <UrlInput @get-lang-list="getLangList" />
             </v-col>
 
             <v-col
               cols="1"
               class="d-flex align-center pa-0"
             >
-              <ValidationProvider
-                name="selected-lang"
-                rules="required"
-                style="width: 100%"
-              >
-                <LangSelectMenu
-                  v-if="mdSize"
-                  :loading="loading.getLangList"
-                />
-                <LangSelect
-                  v-else
-                  :loading="loading.getLangList"
-                />
-              </ValidationProvider>
+              <LangSelectMenu
+                v-if="mdSize"
+                :loading="loading.getLangList"
+              />
+              <LangSelect
+                v-else
+                :loading="loading.getLangList"
+              />
             </v-col>
 
             <v-col
