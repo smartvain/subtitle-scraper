@@ -1,7 +1,5 @@
 <template>
   <ValidationProvider
-    v-slot="{ errors }"
-    mode="passive"
     name="URL"
     rules="is_youtube_url"
     style="width: 100%"
@@ -13,7 +11,6 @@
       hide-details
       solo
       :background-color="bgColor"
-      :error-messages="errors"
       :flat="!isFocus"
       :placeholder="placeholder"
       @blur="isFocus = false; $emit('get-lang-list', scopedUrl);"
