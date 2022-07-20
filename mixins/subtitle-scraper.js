@@ -9,21 +9,18 @@ export default {
     }
   },
   methods: {
-    // 外部リクエストを送ってyoutubeのhtmlを取得
     async fetchContent(url) {
       return await this.$axios.$get(this.axiosUrl, {params: {
         v: this.extractVideoId(url),
         app: 'desktop'
       }});
     },
-    // URLからビデオIDパラメータを抜き取る
     extractVideoId(url) {
       const perseUrl = new URL(url);
       const videoId = perseUrl.searchParams.get('v');
       
       return videoId;
     },
-    // htmlからキャプショントラックを取得する
     extractCaptionTracks(html) {
       const regex = /{"captionTracks":.*isTranslatable":(true|false)}]/;
       const [match] = regex.exec(html);
@@ -31,7 +28,6 @@ export default {
 
       return json.captionTracks;
     },
-    // 言語リストを取得する
     async getLangList(url) {
       this.loading.getLangList = true
       
