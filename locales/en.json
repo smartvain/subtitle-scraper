@@ -1,0 +1,12 @@
+{
+  "urlInput": {
+    "placeholder": "Please enter the URL of YouTube video."
+  },
+  "langSelect": {
+    "noDataText": "URL is not entered.",
+    "placeholder": "Select lang"
+  },
+  "validation": {
+    "isYoutubeUrl": "Please enter the URL of the YouTube video."
+  }
+}
