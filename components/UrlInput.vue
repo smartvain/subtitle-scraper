@@ -20,7 +20,7 @@ export default {
   data() {
     return {
       isFocus: false,
-      placeholder: '字幕表示したいYouTube動画のURLを入力して下さい。',
+      placeholder: this.$t('urlInput.placeholder'),
     }
   },
   computed: {

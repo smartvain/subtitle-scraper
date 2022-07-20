@@ -16,7 +16,7 @@
       </div>
 
       <div v-else class="text-center">
-        <span class="grey--text">{{ noDataText }}</span>
+        <span class="grey--text ma-2">{{ noDataText }}</span>
       </div>
     </template>
   </v-select>
@@ -34,8 +34,8 @@ export default {
   },
   data() {
     return {
-      noDataText: 'URLが入力されていません。',
-      placeholder: '言語を選択'
+      noDataText: this.$t('langSelect.noDataText'),
+      placeholder: this.$t('langSelect.placeholder')
     }
   },
   computed: {
