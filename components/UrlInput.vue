@@ -1,22 +1,16 @@
 <template>
-  <ValidationProvider
-    name="URL"
-    rules="is_youtube_url"
-    style="width: 100%"
-  >
-    <v-text-field
-      v-model="scopedUrl"
-      dense
-      clearable
-      hide-details
-      solo
-      :background-color="bgColor"
-      :flat="!isFocus"
-      :placeholder="placeholder"
-      @blur="isFocus = false; $emit('get-lang-list', scopedUrl);"
-      @focus="isFocus = true"
-    />
-  </ValidationProvider>
+  <v-text-field
+    v-model="scopedUrl"
+    dense
+    clearable
+    hide-details
+    solo
+    :background-color="bgColor"
+    :flat="!isFocus"
+    :placeholder="placeholder"
+    @blur="isFocus = false; $emit('get-lang-list', scopedUrl);"
+    @focus="isFocus = true"
+  />
 </template>
 
 <script>

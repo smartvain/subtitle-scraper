@@ -1,39 +1,63 @@
 <template>
   <v-app dark>
     <v-app-bar app flat height="70">
-      <v-row justify="center">
-        <v-col
-          cols="9"
-          md="6"
-          class="d-flex align-center pl-0"
-        >
-          <UrlInput @get-lang-list="getLangList" />
-        </v-col>
+      <ValidationObserver
+        ref="observer"
+        style="width: 100%"
+        @submit.prevent="handleSubmit"
+      >
+        <form>
+          <v-row justify="center">
+            <v-col
+              cols="9"
+              md="6"
+              class="d-flex align-center pl-0"
+            >
+              <ValidationProvider
+                name="URL"
+                rules="is_youtube_url"
+                style="width: 100%"
+              >
+                <UrlInput @get-lang-list="getLangList" />
+              </ValidationProvider>
+            </v-col>
 
-        <v-col
-          cols="1"
-          class="d-flex align-center pa-0"
-        >
-          <LangSelectMenu
-            v-if="mdSize"
-            :loading="loading.getLangList"
-          />
-          <LangSelect
-            v-else
-            :loading="loading.getLangList"
-          />
-        </v-col>
+            <v-col
+              cols="1"
+              class="d-flex align-center pa-0"
+            >
+              <ValidationProvider
+                name="selected-lang"
+                rules="required"
+                style="width: 100%"
+              >
+                <LangSelectMenu
+                  v-if="mdSize"
+                  :loading="loading.getLangList"
+                />
+                <LangSelect
+                  v-else
+                  :loading="loading.getLangList"
+                />
+              </ValidationProvider>
+            </v-col>
 
-        <v-col
-          cols="1"
-          class="d-flex align-center"
-          :class="{ 'pa-0': mdSize }"
-        >
-          <v-btn icon small @click="getSubtitle">
-            <v-icon>mdi-magnify</v-icon>
-          </v-btn>
-        </v-col>
-      </v-row>
+            <v-col
+              cols="1"
+              class="d-flex align-center"
+              :class="{ 'pa-0': mdSize }"
+            >
+              <v-btn
+                icon
+                small
+                type="submit"
+              >
+                <v-icon>mdi-magnify</v-icon>
+              </v-btn>
+            </v-col>
+          </v-row>
+        </form>
+      </ValidationObserver>
 
       <v-btn
         v-if="!smSize"
@@ -101,6 +125,25 @@ export default {
   },
   mounted() {
     window.addEventListener('resize', () => (this.screenWidth = window.innerWidth))
+  },
+  methods: {
+    async handleSubmit() {
+      const isValid = await this.$refs.observer.validate()
+      if (!isValid) {
+        this.showErrorMessage(this.$refs.observer.errors)
+      } else {
+        this.getSubtitle()
+      }
+    },
+    showErrorMessage(messages) {
+      const errors = []
+      Object.keys(messages).forEach(key => {
+        messages[key].forEach(message => {
+          errors.push(message)
+        })
+      })
+      this.$toast.error(errors.shift())
+    }
   }
 }
 </script>
