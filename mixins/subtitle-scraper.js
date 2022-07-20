@@ -12,7 +12,9 @@ export default {
     async fetchContent(url) {
       return await this.$axios.$get(this.axiosUrl, {params: {
         v: this.extractVideoId(url),
-        app: 'desktop'
+        app: 'desktop',
+        hl: 'en',
+        persist_hl: 1
       }});
     },
     extractVideoId(url) {
