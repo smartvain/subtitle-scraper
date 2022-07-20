@@ -2,7 +2,6 @@ export default {
   data() {
     return {
       axiosUrl: '/api/watch',
-      langList: [],
       loading: {
         getLangList: false,
         getSubtitle: false
@@ -20,8 +19,6 @@ export default {
     extractVideoId(url) {
       const perseUrl = new URL(url);
       const videoId = perseUrl.searchParams.get('v');
-      
-      this.$store.commit('setVideoId', videoId);
       
       return videoId;
     },
@@ -41,12 +38,12 @@ export default {
         const html = await this.fetchContent(url)
         const captionTracks = this.extractCaptionTracks(html)
         
-        this.langList = captionTracks.map(item => {
+        this.$store.commit('setLangList', captionTracks.map(item => {
           return {
             text: item.name.simpleText,
             code: item.languageCode
           }
-        })
+        }))
       } catch (e) {
         console.log(e.message)
       }
