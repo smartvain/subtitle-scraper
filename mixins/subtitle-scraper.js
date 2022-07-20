@@ -12,7 +12,8 @@ export default {
     // 外部リクエストを送ってyoutubeのhtmlを取得
     async fetchContent(url) {
       return await this.$axios.$get(this.axiosUrl, {params: {
-        v: this.extractVideoId(url)
+        v: this.extractVideoId(url),
+        app: 'desktop'
       }});
     },
     // URLからビデオIDパラメータを抜き取る
