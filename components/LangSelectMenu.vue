@@ -1,5 +1,9 @@
 <template>
-  <div>
+  <ValidationProvider
+    name="Selected-lang"
+    :rules="`required_selected:${selectedLang}`"
+    style="width: 100%"
+  >
     <v-btn
       icon
       small
@@ -27,7 +31,7 @@
         </v-list-item-group>
       </v-list>
     </v-menu>
-  </div>
+  </ValidationProvider>
 </template>
 
 <script>
