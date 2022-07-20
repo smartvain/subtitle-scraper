@@ -2,24 +2,41 @@
   <v-app dark>
     <v-app-bar app flat height="70">
       <v-row justify="center">
-        <v-col cols="5" :class="alignCenter">
-          <UrlInput
-            @get-lang-list="getLangList"
-          />
+        <v-col
+          cols="9"
+          md="5"
+          class="d-flex align-center pl-0"
+        >
+          <UrlInput @get-lang-list="getLangList" />
         </v-col>
-        <v-col cols="1" :class="alignCenter">
+
+        <v-col
+          cols="1"
+          class="d-flex align-center pa-0"
+        >
           <LangSelect
+            v-if="!smSize"
+            :loading="loading.getLangList"
+          />
+          <LangSelectMenu
+            v-else
             :loading="loading.getLangList"
           />
         </v-col>
-        <v-col cols="1">
-          <v-btn icon @click="getSubtitle">
+
+        <v-col
+          cols="1"
+          class="d-flex align-center"
+          :class="{ 'pa-0': smSize }"
+        >
+          <v-btn icon small @click="getSubtitle">
             <v-icon>mdi-magnify</v-icon>
           </v-btn>
         </v-col>
       </v-row>
 
       <v-btn
+        v-if="!smSize"
         icon
         absolute
         right
@@ -46,35 +63,43 @@ import { mapGetters } from 'vuex'
 import SubtitleScraperMixin from '~/mixins/subtitle-scraper.js'
 import UrlInput from '~/components/UrlInput.vue'
 import LangSelect from '~/components/LangSelect.vue'
+import LangSelectMenu from '~/components/LangSelectMenu.vue'
 
 export default {
   name: 'DefaultLayout',
   components: {
     UrlInput,
-    LangSelect
+    LangSelect,
+    LangSelectMenu
   },
   mixins: [
     SubtitleScraperMixin
   ],
   data() {
     return {
-      alignCenter: 'd-flex align-center',
       darkMode: false,
+      screenWidth: window.innerWidth
     }
   },
   computed: {
-    ...mapGetters(['selectedLang']),
+    ...mapGetters(['langList', 'selectedLang']),
     themeIcon() {
       return this.darkMode ? 'mdi-weather-night' : 'mdi-weather-sunny'
     },
     bgColor() {
       return this.darkMode ? 'grey darken-3' : 'grey lighten-4'
+    },
+    smSize() {
+      return this.screenWidth <= 670
     }
   },
   watch: {
     darkMode(bool) {
       this.$vuetify.theme.dark = bool
     }
+  },
+  mounted() {
+    window.addEventListener('resize', () => (this.screenWidth = window.innerWidth))
   }
 }
 </script>
