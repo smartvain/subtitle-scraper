@@ -25,7 +25,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/vee-validate'
+    '~/plugins/vee-validate',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -44,12 +44,13 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/proxy',
-    '@nuxtjs/toast'
+    '@nuxtjs/toast',
+    '@nuxtjs/i18n',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    proxy: true
+    proxy: true,
   },
 
   proxy: {
@@ -62,7 +63,19 @@ export default {
   toast: {
     duration: 5000,
     position: 'bottom-left',
-    singleton: true
+    singleton: true,
+  },
+
+  i18n: {
+    locales: [
+      { code: 'en', file: 'en.json' },
+      { code: 'ja', file: 'ja.json' },
+    ],
+    lazy: true,
+    langDir: 'locales/',
+    strategy: 'no_prefix',
+    defaultLocale: 'en',
+    detectBrowserLanguage: false,
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
