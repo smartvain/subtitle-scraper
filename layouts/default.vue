@@ -59,7 +59,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import SubtitleScraperMixin from '~/mixins/subtitle-scraper.js'
 import UrlInput from '~/components/UrlInput.vue'
 import LangSelect from '~/components/LangSelect.vue'
@@ -82,7 +81,6 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['langList', 'selectedLang']),
     themeIcon() {
       return this.darkMode ? 'mdi-weather-night' : 'mdi-weather-sunny'
     },
