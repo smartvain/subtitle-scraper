@@ -4,7 +4,7 @@
       <v-row justify="center">
         <v-col
           cols="9"
-          md="5"
+          md="6"
           class="d-flex align-center pl-0"
         >
           <UrlInput @get-lang-list="getLangList" />
@@ -14,11 +14,11 @@
           cols="1"
           class="d-flex align-center pa-0"
         >
-          <LangSelect
-            v-if="!smSize"
+          <LangSelectMenu
+            v-if="mdSize"
             :loading="loading.getLangList"
           />
-          <LangSelectMenu
+          <LangSelect
             v-else
             :loading="loading.getLangList"
           />
@@ -27,7 +27,7 @@
         <v-col
           cols="1"
           class="d-flex align-center"
-          :class="{ 'pa-0': smSize }"
+          :class="{ 'pa-0': mdSize }"
         >
           <v-btn icon small @click="getSubtitle">
             <v-icon>mdi-magnify</v-icon>
@@ -89,8 +89,11 @@ export default {
     bgColor() {
       return this.darkMode ? 'grey darken-3' : 'grey lighten-4'
     },
+    mdSize() {
+      return this.screenWidth < 960
+    },
     smSize() {
-      return this.screenWidth <= 670
+      return this.screenWidth < 600
     }
   },
   watch: {
