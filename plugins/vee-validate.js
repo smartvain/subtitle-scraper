@@ -1,21 +1,26 @@
-import { extend, ValidationObserver, ValidationProvider } from 'vee-validate'
-import * as rules from 'vee-validate/dist/rules'
-import { messages } from 'vee-validate/dist/locale/ja.json'
+import { extend, localize, ValidationObserver, ValidationProvider } from 'vee-validate'
+import { required } from 'vee-validate/dist/rules'
 import Vue from 'vue'
+import en from 'vee-validate/dist/locale/en.json'
+import customEn from '~/locales/en.json'
 
 Vue.component('ValidationProvider', ValidationProvider)
 Vue.component('ValidationObserver', ValidationObserver)
+localize('en', en)
 
-Object.keys(rules).forEach((rule) => {
-  extend(rule, {
-    ...rules[rule], // eslint-disable-line
-    message: messages[rule]
-  })
-})
+extend('required', required)
 
 extend('is_youtube_url', {
-  message: 'YouTube動画のURLを入力してください。',
-  validate(value) {
-    return value.match(/www.youtube.com/g)
+  message: customEn.validation.isYoutubeUrl,
+  validate(string) {
+    return string.match(/www.youtube.com/g)
+  }
+})
+
+extend('required_selected', {
+  params: ['selectedLang'],
+  message: en.messages.required,
+  validate(value, { selectedLang }) {
+    return !!selectedLang
   }
 })
