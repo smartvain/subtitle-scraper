@@ -1,6 +1,5 @@
 <template>
   <v-app dark>
-    <!-- header -->
     <v-app-bar app flat height="70">
       <v-row justify="center">
         <v-col cols="5" :class="alignCenter">
@@ -11,14 +10,10 @@
         <v-col cols="1" :class="alignCenter">
           <LangSelect
             :loading="loading.getLangList"
-            :lang-list="langList"
           />
         </v-col>
         <v-col cols="1">
-          <v-btn
-            icon
-            @click="getSubtitle"
-          >
+          <v-btn icon @click="getSubtitle">
             <v-icon>mdi-magnify</v-icon>
           </v-btn>
         </v-col>
@@ -34,7 +29,6 @@
       </v-btn>
     </v-app-bar>
 
-    <!-- main -->
     <v-main :class="bgColor">
       <v-container>
         <Nuxt />
@@ -48,31 +42,28 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import SubtitleScraperMixin from '~/mixins/subtitle-scraper.js'
 import UrlInput from '~/components/UrlInput.vue'
 import LangSelect from '~/components/LangSelect.vue'
 
 export default {
   name: 'DefaultLayout',
-  mixins: [
-    SubtitleScraperMixin
-  ],
   components: {
     UrlInput,
     LangSelect
   },
+  mixins: [
+    SubtitleScraperMixin
+  ],
   data() {
     return {
+      alignCenter: 'd-flex align-center',
       darkMode: false,
-      alignCenter: 'd-flex align-center'
-    }
-  },
-  watch: {
-    darkMode(bool) {
-      this.$vuetify.theme.dark = bool
     }
   },
   computed: {
+    ...mapGetters(['selectedLang']),
     themeIcon() {
       return this.darkMode ? 'mdi-weather-night' : 'mdi-weather-sunny'
     },
@@ -80,5 +71,10 @@ export default {
       return this.darkMode ? 'grey darken-3' : 'grey lighten-4'
     }
   },
+  watch: {
+    darkMode(bool) {
+      this.$vuetify.theme.dark = bool
+    }
+  }
 }
 </script>
