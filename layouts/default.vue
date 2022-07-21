@@ -126,9 +126,7 @@ export default {
     showErrorMessage(messages) {
       const errors = []
       Object.keys(messages).forEach(key => {
-        messages[key].forEach(message => {
-          errors.push(message)
-        })
+        messages[key].forEach(message => errors.push(message))
       })
       this.$toast.error(errors.shift())
     }
