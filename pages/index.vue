@@ -8,7 +8,7 @@
         <br>
         <div>selectedLang: {{ selectedLang }}</div>
         <br>
-        <div>subtitle: {{ subtitle }}</div>
+        <div>subtitles: {{ subtitles }}</div>
       </v-card>
     </v-col>
   </v-row>
@@ -22,7 +22,7 @@ export default {
   mixins: [ SubtitleScraperMixin ],
   name: 'IndexPage',
   computed: {
-    ...mapGetters(['url', 'langList', 'selectedLang', 'subtitle'])
+    ...mapGetters(['url', 'langList', 'selectedLang', 'subtitles'])
   }
 }
 </script>
