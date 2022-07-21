@@ -2,7 +2,7 @@ export const state = () => ({
   // url: '',
   langList: [],
   selectedLang: '',
-  subtitle: null,
+  subtitles: [],
   url: 'https://www.youtube.com/watch?v=ouf7rXDlkDk',
   // langList: [
   //   {
@@ -46,12 +46,12 @@ export const getters = {
   url: state => state.url,
   langList: state => state.langList,
   selectedLang: state => state.selectedLang,
-  subtitle: state => state.subtitle
+  subtitles: state => state.subtitles
 }
 
 export const mutations = {
   setUrl: (state, url) => (state.url = url),
   setLangList: (state, langList) => (state.langList = langList),
   setSelectedLang: (state, selectedLang) => (state.selectedLang = selectedLang),
-  setSubtitle: (state, subtitle) => (state.subtitle = subtitle)
+  setSubtitles: (state, subtitles) => (state.subtitles = subtitles)
 }
