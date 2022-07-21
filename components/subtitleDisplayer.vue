@@ -66,12 +66,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .subtitle-word {
-  transition: .3s
-}
-
-.subtitle-word:hover {
-  color: #64B5F6;
+  transition: .3s;
+  &:hover {
+    color: #64B5F6;
+  }
 }
 </style>
