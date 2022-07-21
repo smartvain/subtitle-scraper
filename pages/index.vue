@@ -8,7 +8,10 @@
         <br>
         <div>selectedLang: {{ selectedLang }}</div>
         <br> -->
-        <SubtitleDisplayer @move-weblio="moveWeblio"/>
+        <SubtitleDisplayer
+          class="mt-3"
+          @move-weblio="moveWeblio"
+        />
       </v-card>
     </v-col>
   </v-row>
@@ -16,7 +19,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import SubtitleDisplayer from '~/components/subtitleDisplayer.vue'
+import SubtitleDisplayer from '~/components/SubtitleDisplayer.vue'
 
 export default {
   name: 'IndexPage',
