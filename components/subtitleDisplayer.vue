@@ -19,6 +19,7 @@
         <v-col cols="1" class="px-0">
           <v-btn
             icon
+            small
             :disabled="!searchWord"
             @click="$emit('move-weblio', searchWord)"
           >
@@ -26,6 +27,17 @@
           </v-btn>
         </v-col>
       </v-row>
+    </template>
+
+    <template #[`item.text`]="{ item }">
+      <span
+        v-for="(word, idx) in splitSentence(item.text)"
+        :key="idx"
+        class="subtitle-word"
+        @click="searchWord = word"
+      >
+        {{ word }}
+      </span>
     </template>
   </v-data-table>
 </template>
@@ -45,10 +57,21 @@ export default {
   },
   computed: {
     ...mapGetters(['subtitles'])
+  },
+  methods: {
+    splitSentence(sentence) {
+      return sentence.split(' ')
+    }
   }
 }
 </script>
 
-<style>
+<style scoped>
+.subtitle-word {
+  transition: .3s
+}
 
+.subtitle-word:hover {
+  color: #64B5F6;
+}
 </style>
