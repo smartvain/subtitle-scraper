@@ -64,7 +64,7 @@
       </v-container>
     </v-main>
 
-    <v-footer app>
+    <v-footer v-show="!isSmSize" app>
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
