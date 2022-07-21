@@ -2,13 +2,13 @@
   <v-row justify="center" align="center">
     <v-col cols="12" sm="8" md="6">
       <v-card>
-        <div>url: {{ url }}</div>
+        <!-- <div>url: {{ url }}</div>
         <br>
         <div>langList: {{ langList }}</div>
         <br>
         <div>selectedLang: {{ selectedLang }}</div>
-        <br>
-        <div>subtitles: {{ subtitles }}</div>
+        <br> -->
+        <SubtitleDisplayer @move-weblio="moveWeblio"/>
       </v-card>
     </v-col>
   </v-row>
@@ -16,13 +16,20 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import SubtitleScraperMixin from '~/mixins/subtitle-scraper.js'
+import SubtitleDisplayer from '~/components/subtitleDisplayer.vue'
 
 export default {
-  mixins: [ SubtitleScraperMixin ],
   name: 'IndexPage',
+  components: {
+    SubtitleDisplayer
+  },
   computed: {
-    ...mapGetters(['url', 'langList', 'selectedLang', 'subtitles'])
+    ...mapGetters(['url', 'langList', 'selectedLang'])
+  },
+  methods: {
+    moveWeblio(searchWord) {
+      window.open(`https://ejje.weblio.jp/content/${searchWord}`, '_subwindow')
+    }
   }
 }
 </script>
