@@ -11,8 +11,9 @@
         <v-col cols="10">
           <v-text-field
             v-model="searchWord"
-            placeholder="search in subtitles"
-            dense clearable
+            clearable
+            dense
+            :placeholder="$t('subtitleDisplayer.searchField.placeholder')"
           />
         </v-col>
         <v-col cols="1" class="px-0">

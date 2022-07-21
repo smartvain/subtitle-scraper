@@ -6,6 +6,11 @@
     "noDataText": "URL is not entered.",
     "placeholder": "Select lang"
   },
+  "subtitleDisplayer": {
+    "searchField": {
+      "placeholder": "Search subtitles"
+    }
+  },
   "validation": {
     "isYoutubeUrl": "Please enter the URL of the YouTube video."
   }

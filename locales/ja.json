@@ -6,6 +6,11 @@
     "noDataText": "URLが入力されていません。",
     "placeholder": "言語を選択"
   },
+  "subtitleDisplayer": {
+    "searchBox": {
+      "placeholder": "字幕を検索"
+    }
+  },
   "validation": {
     "isYoutubeUrl": "YouTube動画のURLを入力して下さい。"
   }
