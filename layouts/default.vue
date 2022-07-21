@@ -21,7 +21,7 @@
               class="d-flex align-center pa-0"
             >
               <LangSelectMenu
-                v-if="mdSize"
+                v-if="isMdSize"
                 :loading="loading.getLangList"
               />
               <LangSelect
@@ -33,7 +33,7 @@
             <v-col
               cols="1"
               class="d-flex align-center"
-              :class="{ 'pa-0': mdSize }"
+              :class="{ 'pa-0': isMdSize }"
             >
               <v-btn
                 icon
@@ -48,7 +48,7 @@
       </ValidationObserver>
 
       <v-btn
-        v-if="!smSize"
+        v-if="!isSmSize"
         icon
         absolute
         right
@@ -101,10 +101,10 @@ export default {
     bgColor() {
       return this.darkMode ? 'grey darken-3' : 'grey lighten-4'
     },
-    mdSize() {
+    isMdSize() {
       return this.screenWidth < 960
     },
-    smSize() {
+    isSmSize() {
       return this.screenWidth < 600
     }
   },
