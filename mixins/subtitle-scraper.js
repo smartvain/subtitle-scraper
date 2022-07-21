@@ -32,9 +32,8 @@ export default {
     },
     extractVideoId(url) {
       const perseUrl = new URL(url);
-      const videoId = perseUrl.searchParams.get('v')
-      
-      return videoId
+
+      return perseUrl.searchParams.get('v')
     },
     extractCaptionTracks(html) {
       const regex = /{"captionTracks":.*isTranslatable":(true|false)}]/
@@ -48,7 +47,7 @@ export default {
       xml = xml.replace(/<\/transcript>/, '')
       const subtitles = xml.split('</text>')
 
-      const subtitlesWithSeconds = subtitles.map((item, idx) => {
+      return subtitles.map((item, idx) => {
         if (!item) {
           subtitles.splice(idx, 1)
           return false
@@ -62,12 +61,20 @@ export default {
 
         return {
           text: item,
-          start: start[1],
-          dur: dur[1]
+          start: this.calcTime(start[1]),
+          dur: this.calcTime(dur[1])
         }
       }).filter(Boolean)
-      
-      return subtitlesWithSeconds
+    },
+    calcTime(seconds) {
+      let hour = String(Math.floor(seconds / 3600))
+      let min  = String(Math.floor(seconds % 3600 / 60))
+      let rem  = String(Math.floor(seconds % 60))
+      if (hour < 10) { hour = hour.padStart(2, '0') }
+      if (min < 10) { min = min.padStart(2, '0') }
+      if (rem < 10) { rem = rem.padStart(2, '0') }
+
+      return hour === '00' ? `${min}:${rem}` : `${hour}:${min}:${rem}`
     },
     adjustSubtitle(subtitle) {
       subtitle = subtitle.trim()
@@ -89,13 +96,14 @@ export default {
       
       try {
         const captionTracks = await this.extractCaptionTracksFromUrl(url)
-        
-        this.$store.commit('setLangList', captionTracks.map(item => {
+        const langList = captionTracks.map(item => {
           return {
             text: item.name.simpleText,
             code: item.languageCode
           }
-        }))
+        })
+
+        this.$store.commit('setLangList', langList)
       } catch (e) {
         console.log(e.message) // eslint-disable-line no-console
       }
@@ -108,7 +116,6 @@ export default {
       try {
         const captionTracks = await this.extractCaptionTracksFromUrl(url)
         const captionTrack = this.filterByLang(captionTracks, lang)
-
         const xml = await this.fetchContentFromBaseUrl(captionTrack)
         const subtitles = this.extractSubtitlesWithSeconds(xml)
         
