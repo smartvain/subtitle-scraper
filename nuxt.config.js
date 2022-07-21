@@ -54,9 +54,9 @@ export default {
   },
 
   proxy: {
-    '/api/': {
+    '/youtube/': {
       target: 'https://www.youtube.com',
-      pathRewrite: {'^/api/': ''},
+      pathRewrite: {'^/youtube/': ''},
     }
   },
 
