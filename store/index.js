@@ -15,7 +15,7 @@ export const state = () => ({
   //   { "text": "日本語", "code": "ja" }
   // ],
   // selectedLang: 'en',
-  // subtitle: null
+  // subtitle: []
 })
 
 export const getters = {
