@@ -10,7 +10,7 @@
     "noDataText": "言語リストがありません。"
   },
   "subtitleDisplayer": {
-    "searchBox": {
+    "searchField": {
       "placeholder": "字幕を検索"
     },
     "headerText": {
