@@ -40,7 +40,7 @@ export default {
       }
     },
     bgColor() {
-      const color = this.$vuetify.theme.dark ? 'blue-grey darken-2' : 'blue-grey lighten-5'
+      const color = this.$vuetify.theme.dark ? 'indigo darken-2' : 'indigo lighten-4'
       return this.isFocus ? color : null
     }
   }
