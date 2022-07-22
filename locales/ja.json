@@ -6,6 +6,9 @@
     "noDataText": "URLが入力されていません。",
     "placeholder": "言語を選択"
   },
+  "langSelectMenu": {
+    "noDataText": "言語リストがありません。"
+  },
   "subtitleDisplayer": {
     "searchBox": {
       "placeholder": "字幕を検索"

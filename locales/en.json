@@ -6,6 +6,9 @@
     "noDataText": "URL is not entered.",
     "placeholder": "Select lang"
   },
+  "langSelectMenu": {
+    "noDataText": "No Lang-list"
+  },
   "subtitleDisplayer": {
     "searchField": {
       "placeholder": "Search subtitles"
