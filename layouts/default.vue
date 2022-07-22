@@ -67,6 +67,24 @@
     <v-footer v-show="!isSmSize" app>
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
+
+    <div v-show="isSmSize">
+      <v-fade-transition>
+        <v-btn
+          v-show="fab"
+          v-scroll="onScroll"
+          fixed
+          bottom
+          right
+          fab
+          small
+          style="opacity: .5"
+          @click="$vuetify.goTo(0, 'smooth')"
+        >
+          <v-icon>mdi-chevron-up</v-icon>
+        </v-btn>
+      </v-fade-transition>
+    </div>
   </v-app>
 </template>
 
@@ -90,7 +108,9 @@ export default {
   data() {
     return {
       darkMode: false,
-      screenWidth: window.innerWidth
+      screenWidth: window.innerWidth,
+      fab: false,
+      scrollOffset: 0
     }
   },
   computed: {
@@ -131,6 +151,13 @@ export default {
         messages[key].forEach(message => errors.push(message))
       })
       this.$toast.error(errors.shift())
+    },
+    onScroll (e){
+      if (typeof window === 'undefined') return
+      const top = window.pageYOffset || e.target.scrollTop || 0
+
+      this.fab = this.scrollOffset < top
+      this.scrollOffset = top
     }
   }
 }
