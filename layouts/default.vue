@@ -39,6 +39,7 @@
                 icon
                 small
                 type="submit"
+                :loading="loading.getSubtitles"
               >
                 <v-icon>mdi-magnify</v-icon>
               </v-btn>
