@@ -10,11 +10,11 @@
     >
       <template #activator="{ on, attrs }">
         <v-btn
-          v-bind="attrs"
-          v-on="on"
           icon
           small
           :loading="loading"
+          v-bind="attrs"
+          v-on="on"
           @click="isOpenMenu = !isOpenMenu"
         >
           <v-icon>mdi-translate</v-icon>
