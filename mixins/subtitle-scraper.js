@@ -37,8 +37,13 @@ export default {
     },
     extractCaptionTracks(html) {
       const regex = /{"captionTracks":.*isTranslatable":(true|false)}]/
-      const [match] = regex.exec(html)
-      const json = JSON.parse(`${match}}`)
+      const match = regex.exec(html)
+      
+      if (!match) {
+        throw new Error('CaptionTracks not found.')
+      }
+      
+      const json = JSON.parse(`${match.shift()}}`)
 
       return json.captionTracks
     },
