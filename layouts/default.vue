@@ -59,7 +59,7 @@
       </v-btn>
     </v-app-bar>
 
-    <v-main :class="bgColor">
+    <v-main :style="`background-color: ${bgColor}`">
       <v-container>
         <Nuxt />
       </v-container>
@@ -141,7 +141,7 @@ export default {
       return this.darkMode ? 'mdi-weather-night' : 'mdi-weather-sunny'
     },
     bgColor() {
-      return this.darkMode ? 'grey darken-3' : 'grey lighten-4'
+      return this.darkMode ? '#272727' : '#F5F5F5'
     },
     isMdSize() {
       return this.screenWidth < 960
