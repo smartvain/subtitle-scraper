@@ -13,7 +13,9 @@
       :background-color="bgColor"
       :flat="!isFocus"
       :placeholder="$t('urlInput.placeholder')"
-      @blur="isFocus = false; $emit('get-lang-list', scopedUrl);"
+      @blur="
+        isFocus = false;
+        if (scopedUrl) $emit('get-lang-list', scopedUrl);"
       @focus="isFocus = true"
     />
   </ValidationProvider>
