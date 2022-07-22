@@ -17,7 +17,7 @@
           <v-list-item-title
             @click="$emit('update:darkMode', !darkMode)"
           >
-            Dark Mode
+            {{ $t('navigationDrawer.list.darkMode') }}
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>

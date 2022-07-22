@@ -14,6 +14,11 @@
       "placeholder": "字幕を検索"
     }
   },
+  "navigationDrawer": {
+    "list": {
+      "darkMode": "ダークモード"
+    }
+  },
   "validation": {
     "isYoutubeUrl": "YouTube動画のURLを入力して下さい。"
   }

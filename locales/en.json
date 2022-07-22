@@ -14,6 +14,11 @@
       "placeholder": "Search subtitles"
     }
   },
+  "navigationDrawer": {
+    "list": {
+      "darkMode": "darkMode"
+    }
+  },
   "validation": {
     "isYoutubeUrl": "Please enter the URL of the YouTube video."
   }
