@@ -64,27 +64,45 @@
       </v-container>
     </v-main>
 
-    <v-footer v-show="!isSmSize" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
-
-    <div v-show="isSmSize">
-      <v-fade-transition>
+    <v-fade-transition>
+      <v-footer
+        v-show="isSmSize ? isScroll : true"
+        v-scroll="onScroll"
+        style="opacity: .9"
+        :height="isSmSize ? 70 : 40"
+        app
+      >
         <v-btn
-          v-show="fab"
-          v-scroll="onScroll"
+          v-show="isSmSize"
+          icon
+          small
+          @click="isOpenDrawer = !isOpenDrawer"
+        >
+          <v-icon>mdi-menu</v-icon>
+        </v-btn>
+      
+        <v-btn
+          v-show="isSmSize"
           fixed
           bottom
           right
           fab
           small
-          style="opacity: .5"
           @click="$vuetify.goTo(0, 'smooth')"
         >
           <v-icon>mdi-chevron-up</v-icon>
         </v-btn>
-      </v-fade-transition>
-    </div>
+      </v-footer>
+    </v-fade-transition>
+
+    <NavigationDrawer
+      :is-open-drawer.sync="isOpenDrawer"
+      :dark-mode.sync="darkMode"
+    >
+      <template #themeIcon>
+        {{ themeIcon }}
+      </template>
+    </NavigationDrawer>
   </v-app>
 </template>
 
@@ -94,13 +112,15 @@ import SubtitleScraperMixin from '~/mixins/subtitle-scraper.js'
 import UrlInput from '~/components/UrlInput.vue'
 import LangSelect from '~/components/LangSelect.vue'
 import LangSelectMenu from '~/components/LangSelectMenu.vue'
+import NavigationDrawer from '~/components/NavigationDrawer.vue'
 
 export default {
   name: 'DefaultLayout',
   components: {
     UrlInput,
     LangSelect,
-    LangSelectMenu
+    LangSelectMenu,
+    NavigationDrawer
   },
   mixins: [
     SubtitleScraperMixin
@@ -108,8 +128,9 @@ export default {
   data() {
     return {
       darkMode: false,
+      isOpenDrawer: false,
       screenWidth: window.innerWidth,
-      fab: false,
+      isScroll: false,
       scrollOffset: 0
     }
   },
@@ -156,7 +177,7 @@ export default {
       if (typeof window === 'undefined') return
       const top = window.pageYOffset || e.target.scrollTop || 0
 
-      this.fab = this.scrollOffset < top
+      this.isScroll = this.scrollOffset < top
       this.scrollOffset = top
     }
   }
