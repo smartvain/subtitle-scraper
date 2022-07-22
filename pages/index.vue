@@ -2,12 +2,6 @@
   <v-row justify="center" align="center">
     <v-col cols="12" sm="9" md="7">
       <v-card>
-        <!-- <div>url: {{ url }}</div>
-        <br>
-        <div>langList: {{ langList }}</div>
-        <br>
-        <div>selectedLang: {{ selectedLang }}</div>
-        <br> -->
         <SubtitleDisplayer
           class="mt-3"
           @move-weblio="moveWeblio"
