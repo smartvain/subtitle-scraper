@@ -12,6 +12,10 @@
   "subtitleDisplayer": {
     "searchField": {
       "placeholder": "Search subtitles"
+    },
+    "headerText": {
+      "start": "start",
+      "subtitle": "subtitle"
     }
   },
   "navigationDrawer": {

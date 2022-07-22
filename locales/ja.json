@@ -12,6 +12,10 @@
   "subtitleDisplayer": {
     "searchBox": {
       "placeholder": "字幕を検索"
+    },
+    "headerText": {
+      "start": "スタート",
+      "subtitle": "字幕"
     }
   },
   "navigationDrawer": {

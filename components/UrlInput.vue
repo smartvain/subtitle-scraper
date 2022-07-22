@@ -12,7 +12,7 @@
       solo
       :background-color="bgColor"
       :flat="!isFocus"
-      :placeholder="placeholder"
+      :placeholder="$t('urlInput.placeholder')"
       @blur="isFocus = false; $emit('get-lang-list', scopedUrl);"
       @focus="isFocus = true"
     />
@@ -26,7 +26,6 @@ export default {
   data() {
     return {
       isFocus: false,
-      placeholder: this.$t('urlInput.placeholder'),
     }
   },
   computed: {

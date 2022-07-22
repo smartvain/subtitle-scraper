@@ -12,8 +12,7 @@
       item-value="code"
       :items="langList"
       :loading="loading"
-      :no-data-text="noDataText"
-      :placeholder="placeholder"
+      :placeholder="$t('langSelect.placeholder')"
     >
       <template #no-data>
         <div v-if="loading" class="text-center">
@@ -21,7 +20,9 @@
         </div>
 
         <div v-else class="text-center">
-          <span class="grey--text ma-2">{{ noDataText }}</span>
+          <span class="grey--text ma-2">
+            {{ $t('langSelect.noDataText') }}
+          </span>
         </div>
       </template>
     </v-select>
@@ -36,12 +37,6 @@ export default {
     loading: {
       type: Boolean,
       default: () => false
-    }
-  },
-  data() {
-    return {
-      noDataText: this.$t('langSelect.noDataText'),
-      placeholder: this.$t('langSelect.placeholder')
     }
   },
   computed: {

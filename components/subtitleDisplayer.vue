@@ -49,8 +49,14 @@ export default {
   data() {
     return {
       headers: [
-        { text: 'start', value: 'start' },
-        { text: 'subtitle', value: 'text' }
+        {
+          text: this.$t('subtitleDisplayer.headerText.start'),
+          value: 'start'
+        },
+        {
+          text: this.$t('subtitleDisplayer.headerText.subtitle'),
+          value: 'text'
+        }
       ],
       searchWord: ''
     }
