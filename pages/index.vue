@@ -12,16 +12,12 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import SubtitleDisplayer from '~/components/SubtitleDisplayer.vue'
 
 export default {
   name: 'IndexPage',
   components: {
     SubtitleDisplayer
-  },
-  computed: {
-    ...mapGetters(['url', 'langList', 'selectedLang'])
   },
   methods: {
     moveWeblio(searchWord) {
