@@ -23,7 +23,7 @@
             :disabled="!searchWord"
             @click="$emit('move-weblio', searchWord)"
           >
-            <v-icon>mdi-magnify</v-icon>
+            <v-icon>mdi-search-web</v-icon>
           </v-btn>
         </v-col>
       </v-row>
