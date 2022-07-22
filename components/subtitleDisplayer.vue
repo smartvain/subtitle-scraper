@@ -70,7 +70,7 @@ export default {
 .subtitle-word {
   transition: .3s;
   &:hover {
-    color: #64B5F6;
+    color: #7986CB;
   }
 }
 </style>

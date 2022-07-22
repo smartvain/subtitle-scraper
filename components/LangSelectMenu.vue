@@ -10,6 +10,7 @@
     >
       <template #activator="{ on, attrs }">
         <v-btn
+          :color="selectedLang ? 'primary' : null"
           icon
           small
           :loading="loading"
