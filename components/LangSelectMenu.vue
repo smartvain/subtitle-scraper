@@ -4,10 +4,7 @@
     :rules="`required_selected:${selectedLang}`"
     style="width: 100%"
   >
-    <v-menu
-      v-model="isOpenMenu"
-      offset-y
-    >
+    <v-menu offset-y>
       <template #activator="{ on, attrs }">
         <v-btn
           :color="selectedLang ? 'primary' : null"
@@ -16,7 +13,6 @@
           :loading="loading"
           v-bind="attrs"
           v-on="on"
-          @click="isOpenMenu = !isOpenMenu"
         >
           <v-icon>mdi-translate</v-icon>
         </v-btn>
@@ -58,11 +54,6 @@ export default {
     loading: {
       type: Boolean,
       default: () => false
-    }
-  },
-  data() {
-    return {
-      isOpenMenu: false,
     }
   },
   computed: {
