@@ -4,15 +4,20 @@
     :rules="`required_selected:${selectedLang}`"
     style="width: 100%"
   >
-    <v-menu offset-y>
+    <v-input value="selectedLang" style="display: none" />
+
+    <v-menu
+      transition="slide-x-transition"
+      offset-y
+    >
       <template #activator="{ on, attrs }">
         <v-btn
-          :color="selectedLang ? 'primary' : null"
           icon
           small
-          :loading="loading"
           v-bind="attrs"
           v-on="on"
+          :color="selectedLang ? 'primary' : null"
+          :loading="loading"
         >
           <v-icon>mdi-translate</v-icon>
         </v-btn>
