@@ -3,15 +3,15 @@
     "placeholder": "Please enter the URL of YouTube video."
   },
   "langSelect": {
-    "noDataText": "URL is not entered.",
-    "placeholder": "Select lang"
+    "noDataText": "No Lang-List",
+    "placeholder": "Select Lang"
   },
   "langSelectMenu": {
-    "noDataText": "No Lang-list"
+    "noDataText": "No Lang-List"
   },
   "subtitleDisplayer": {
     "searchField": {
-      "placeholder": "Search subtitles"
+      "placeholder": "Search Subtitles"
     },
     "headerText": {
       "start": "start",
