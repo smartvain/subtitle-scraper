@@ -1,6 +1,7 @@
 <template>
   <v-navigation-drawer
     v-model="scopedIsOpenDrawer"
+    style="opacity: .9"
     app
     temporary
   >
@@ -10,26 +11,14 @@
     >
       <v-list-item>
         <v-list-item-icon>
-          <v-icon><v-slot name="darkMode" /></v-icon>
+          <v-icon><slot name="themeIcon" /></v-icon>
         </v-list-item-icon>
         <v-list-item-content>
-          <v-list-item-title>Dark Mode</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title>Dark Mode</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title>Dark Mode</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title>Dark Mode</v-list-item-title>
+          <v-list-item-title
+            @click="$emit('update:darkMode', !darkMode)"
+          >
+            Dark Mode
+          </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-list>
@@ -40,6 +29,10 @@
 export default {
   props: {
     isOpenDrawer: {
+      type: Boolean,
+      default: () => false
+    },
+    darkMode: {
       type: Boolean,
       default: () => false
     }
@@ -56,7 +49,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>
