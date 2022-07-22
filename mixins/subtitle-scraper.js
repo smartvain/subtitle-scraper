@@ -15,7 +15,7 @@ export default {
         app: 'desktop',
         hl: 'en',
         persist_hl: 1
-      }});
+      }})
     },
     async fetchContentFromBaseUrl(captionTrack) {
       const baseUrl = new URL(captionTrack.baseUrl)
