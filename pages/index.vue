@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     moveWeblio(searchWord) {
-      window.open(`https://ejje.weblio.jp/content/${searchWord}`, '_subwindow')
+      window.open(`https://ejje.weblio.jp/content/${searchWord}`, '_blank')
     }
   }
 }
