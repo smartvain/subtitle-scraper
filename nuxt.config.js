@@ -64,7 +64,6 @@ export default {
   toast: {
     duration: 5000,
     position: 'bottom-left',
-    singleton: true,
   },
 
   i18n: {
