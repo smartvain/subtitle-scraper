@@ -1,7 +1,6 @@
 <template>
   <v-navigation-drawer
     v-model="scopedIsOpenDrawer"
-    style="opacity: .9"
     app
     temporary
   >
@@ -21,6 +20,38 @@
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
+
+      <v-list-group>
+        <template #activator>
+          <v-list-item-icon>
+            <v-icon>mdi-contactless-payment-circle-outline</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>
+              Contact Developer
+            </v-list-item-title>
+          </v-list-item-content>
+        </template>
+
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title class="primary--text">
+              Gmail : zlc.blue15210@gmail.com
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item
+          v-for="(item, idx) in contactItems"
+          :key="idx"
+        >
+          <v-list-item-content>
+            <v-list-item-title>
+              <a :href="item.url" target="_blank">{{ item.text }}</a>
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list-group>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -35,6 +66,20 @@ export default {
     darkMode: {
       type: Boolean,
       default: () => false
+    }
+  },
+  data() {
+    return {
+      contactItems: [
+        {
+          text: 'Google Form',
+          url: 'https://forms.gle/cdjsoLzpXF9PPqRb9'
+        },
+        {
+          text: 'GitHub',
+          url: 'https://github.com/smartvain'
+        }
+      ]
     }
   },
   computed: {
