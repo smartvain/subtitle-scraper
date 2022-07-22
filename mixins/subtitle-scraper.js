@@ -105,7 +105,7 @@ export default {
 
         this.$store.commit('setLangList', langList)
       } catch (e) {
-        console.log(e.message) // eslint-disable-line no-console
+        this.$toast.error(e.message)
       }
 
       this.loading.getLangList = false
@@ -122,7 +122,7 @@ export default {
         this.$store.commit('setSubtitles', subtitles)
 
       } catch (e) {
-        console.log(e.message) // eslint-disable-line no-console
+        this.$toast.error(e.message)
       }
       
       this.loading.getSubtitles = false
