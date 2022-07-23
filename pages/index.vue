@@ -40,3 +40,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.main-text > * {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 5rem;
+}
+</style>
