@@ -76,7 +76,7 @@
 
     <v-fade-transition>
       <v-footer
-        v-show="isSmSize ? isScroll : true"
+        v-show="isSmSize ? isScroll : false"
         v-scroll="onScroll"
         style="opacity: .9"
         :height="isSmSize ? 70 : 40"
