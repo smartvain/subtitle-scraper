@@ -88,8 +88,8 @@ export default {
     adjustSubtitle(subtitle) {
       subtitle = subtitle.trim()
       subtitle = subtitle.replace(/<text.+?>/, '')
-      subtitle = subtitle.replace(/&amp;/, '&')
-      subtitle = subtitle.replace(/&#39;/, "'")
+      subtitle = subtitle.replace(/&amp;/g, '&')
+      subtitle = subtitle.replace(/&#39;/g, "'")
 
       return subtitle
     },
