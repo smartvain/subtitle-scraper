@@ -2,7 +2,7 @@
   <v-dialog v-model="scopedIsOpenDialog" width="670">
     <v-card>
       <v-card-title class="text-h6 font-weight-bold">
-        About this web site
+        {{ $t('about.title') }}
       </v-card-title>
 
       <v-divider class="mb-5"/>
@@ -20,7 +20,7 @@
             text
             @click="scopedIsOpenDialog = !scopedIsOpenDialog"
           >
-            close
+            {{ $t('item.close') }}
           </v-btn>
         </v-card-actions>
     </v-card>

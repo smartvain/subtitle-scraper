@@ -107,12 +107,17 @@
 
     <NavigationDrawer
       :is-open-drawer.sync="isOpenDrawer"
+      :is-open-dialog.sync="isOpenDialog"
       :dark-mode.sync="darkMode"
     >
       <template #themeIcon>
         {{ themeIcon }}
       </template>
     </NavigationDrawer>
+
+    <AboutDialog
+      :is-open-dialog.sync="isOpenDialog"
+    />
   </v-app>
 </template>
 
@@ -123,6 +128,7 @@ import UrlInput from '~/components/UrlInput.vue'
 import LangSelect from '~/components/LangSelect.vue'
 import LangSelectMenu from '~/components/LangSelectMenu.vue'
 import NavigationDrawer from '~/components/NavigationDrawer.vue'
+import AboutDialog from '~/components/AboutDialog.vue'
 
 export default {
   name: 'DefaultLayout',
@@ -130,7 +136,8 @@ export default {
     UrlInput,
     LangSelect,
     LangSelectMenu,
-    NavigationDrawer
+    NavigationDrawer,
+    AboutDialog
   },
   mixins: [
     SubtitleScraperMixin
@@ -139,6 +146,7 @@ export default {
     return {
       darkMode: false,
       isOpenDrawer: false,
+      isOpenDialog: false,
       screenWidth: window.innerWidth,
       isScroll: false,
       scrollOffset: 0

@@ -20,10 +20,20 @@
   },
   "navigationDrawer": {
     "list": {
-      "darkMode": "ダークモード"
+      "darkMode": "ダークモード",
+      "about": "サイトについて"
     }
+  },
+  "about": {
+    "title": "当サイトについて",
+    "description1": "当サイトはお好きなYouTube動画の字幕を表示することができます。",
+    "description2": "そして、その字幕の中で意味がわからない単語があればすぐにWebLio辞書で検索することができます。",
+    "description3": "字幕の中の単語をクリックすると、検索欄の中に単語がコピーされます。"
   },
   "validation": {
     "isYoutubeUrl": "YouTube動画のURLを入力して下さい。"
+  },
+  "item": {
+    "close": "閉じる"
   }
 }

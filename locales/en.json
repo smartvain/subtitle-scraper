@@ -20,10 +20,20 @@
   },
   "navigationDrawer": {
     "list": {
-      "darkMode": "Dark Mode"
+      "darkMode": "Dark Mode",
+      "about": "About"
     }
+  },
+  "about": {
+    "title": "About this web site",
+    "description1": "This site can display subtitles for your favorite YouTube videos.",
+    "description2": "Then, if there is a word in the subtitle whose meaning you do not understand, you can immediately search for it in the WebLio dictionary.",
+    "description3": "Click on a word in the subtitle and the word will be copied into the search field."
   },
   "validation": {
     "isYoutubeUrl": "Please enter the URL of the YouTube video."
+  },
+  "item": {
+    "close": "close"
   }
 }

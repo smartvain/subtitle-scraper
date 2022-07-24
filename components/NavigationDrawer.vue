@@ -9,19 +9,32 @@
       nav
       dense
     >
-      <v-list-item>
+    <v-list-item-group>
+      <!-- Dark Mode -->
+      <v-list-item @click="$emit('update:darkMode', !darkMode)">
         <v-list-item-icon>
           <v-icon><slot name="themeIcon" /></v-icon>
         </v-list-item-icon>
         <v-list-item-content>
-          <v-list-item-title
-            @click="$emit('update:darkMode', !darkMode)"
-          >
+          <v-list-item-title>
             {{ $t('navigationDrawer.list.darkMode') }}
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
+      <!-- About -->
+      <v-list-item @click="$emit('update:isOpenDialog', !isOpenDialog)">
+        <v-list-item-icon>
+          <v-icon>mdi-information-outline</v-icon>
+        </v-list-item-icon>
+        <v-list-item-content>
+          <v-list-item-title>
+            {{ $t('navigationDrawer.list.about') }}
+          </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+
+      <!-- Developer -->
       <v-list-group>
         <template #activator>
           <v-list-item-icon>
@@ -53,6 +66,7 @@
           </v-list-item-content>
         </v-list-item>
       </v-list-group>
+    </v-list-item-group>
     </v-list>
   </v-navigation-drawer>
 </template>
@@ -61,6 +75,10 @@
 export default {
   props: {
     isOpenDrawer: {
+      type: Boolean,
+      default: () => false
+    },
+    isOpenDialog: {
       type: Boolean,
       default: () => false
     },
@@ -95,3 +113,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.cursor:hover {
+  cursor: pointer;
+}
+</style>
