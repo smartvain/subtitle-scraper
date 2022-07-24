@@ -1,6 +1,15 @@
 <template>
   <v-app>
     <v-app-bar app flat height="70">
+      <v-btn
+        icon
+        absolute
+        left
+        @click="isOpenDrawer = !isOpenDrawer"
+      >
+        <v-icon>mdi-menu</v-icon>
+      </v-btn>
+      
       <ValidationObserver
         ref="observer"
         style="width: 100%"
