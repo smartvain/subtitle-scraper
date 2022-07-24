@@ -13,7 +13,7 @@ extend('required', required)
 extend('is_youtube_url', {
   message: customEn.validation.isYoutubeUrl,
   validate(string) {
-    return string.match(/www.youtube.com/g)
+    return string.match(/www.youtube.com/g) || string.match(/youtu.be/g)
   }
 })
 

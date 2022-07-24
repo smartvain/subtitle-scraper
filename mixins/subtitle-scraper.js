@@ -32,8 +32,12 @@ export default {
     },
     extractVideoId(url) {
       const perseUrl = new URL(url);
+      let videoId = perseUrl.searchParams.get('v')
+      if (!videoId) {
+        videoId = perseUrl.pathname.replace(/^\//, '')
+      }
 
-      return perseUrl.searchParams.get('v')
+      return videoId
     },
     extractCaptionTracks(html) {
       const regex = /{"captionTracks":.*isTranslatable":(true|false)}]/
