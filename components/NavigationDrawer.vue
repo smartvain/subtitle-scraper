@@ -3,6 +3,7 @@
     v-model="scopedIsOpenDrawer"
     app
     temporary
+    width="280"
   >
     <v-list
       nav
